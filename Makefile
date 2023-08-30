@@ -6,17 +6,13 @@
 #    By: dkurcbar <dkurcbar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 17:48:56 by dkurcbar          #+#    #+#              #
-#    Updated: 2023/08/30 17:48:56 by dkurcbar         ###   ########.fr        #
+#    Updated: 2023/08/30 19:29:13 by dkurcbar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
-	#Library Name
 NAME	=   minitalk
 CLIENT	=	client
 SERVER	=	server
-
 	#libft Variables
 LIBFT		=	./ft_libft/libft.a
 LIBFT_DIR	=	./ft_libft
@@ -51,12 +47,13 @@ $(LIBFT):
 	@ $(MAKE) -C $(LIBFT_DIR)
 
 clean:
+	@ $(MAKE) --no-print-directory clean -C $(LIBFT_DIR)
 	@ $(RM) $(CLIENT) $(SERVER)
 	@printf "$(_INFO) client removed.\n"
 	@printf "$(_INFO) server removed.\n"
 
 fclean: clean
-	@ $(MAKE) fclean -C $(LIBFT_DIR)
+	@ $(MAKE) --no-print-directory fclean -C $(LIBFT_DIR)
 	@ $(RM) $(CLIENT) $(SERVER)
 	@printf "$(_INFO) client removed.\n"
 	@printf "$(_INFO) server removed.\n"
